@@ -1,0 +1,368 @@
+:root {
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --hero-bg: #ffe4b5; /* 따뜻한 밝은 노랑 (Moccasin) */
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --accent-orange: #ff9f43; /* 파스텔 오렌지 */
+    --accent-green: #1dd1a1; /* 부드러운 초록 */
+    --accent-pink: #ff6b6b; /* 부드러운 코랄/핑크 */
+    --bg-color: #fff9f2; /* 아주 연한 따뜻한 배경 */
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    --border-radius: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* 폰트 설정 */
+h1, h2, h3, .logo, .motto {
+    font-family: 'Jua', sans-serif;
+}
+
+/* 1. 글로벌 네비게이션 (Apple 스타일) */
+.global-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+}
+
+.nav-content {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--accent-orange);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-orange);
+}
+
+.link-btn {
+    background-color: var(--accent-green);
+    color: white !important;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem !important;
+}
+
+.link-btn:hover {
+    background-color: #10ac84;
+    color: white !important;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* 2. 히어로 섹션 (중앙 검색창) */
+.hero-section {
+    margin-top: 60px; /* 네비게이션 높이만큼 띄움 */
+    background: linear-gradient(135deg, var(--hero-bg), #ffd1a4);
+    height: 40vh;
+    min-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: #d35400;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #e67e22;
+    margin-bottom: 30px;
+}
+
+.search-container {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(211, 84, 0, 0.15);
+    border-radius: 30px;
+    overflow: hidden;
+    background: white;
+}
+
+.search-container input {
+    flex: 1;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1rem;
+    outline: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.search-container button {
+    background: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 0 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-container button:hover {
+    background: #e17055;
+}
+
+/* 3. 콘텐츠 그리드 */
+.content-grid {
+    max-width: 1000px;
+    margin: -40px auto 40px auto; /* 히어로 섹션에 살짝 걸치게 */
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+/* 카드 공통 스타일 */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+    border-bottom: 2px dashed #ffeaa7;
+    padding-bottom: 10px;
+}
+
+/* 학급 소개 */
+.intro-card .motto {
+    font-size: 1.4rem;
+    color: var(--accent-pink);
+    text-align: center;
+    margin: 15px 0;
+    background: #fff0f0;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* 주간 학습 일정 */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.schedule-table th {
+    color: var(--accent-green);
+    font-weight: bold;
+    width: 30%;
+}
+
+.schedule-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 공지사항 */
+.notice-list {
+    list-style: none;
+}
+
+.notice-list li {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.notice-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.notice-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background: #eee;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.notice-badge.new {
+    background: var(--accent-pink);
+    color: white;
+}
+
+.notice-list strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.notice-list p {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+/* 선생님 한마디 (전체 너비 사용) */
+.teacher-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(to right, #ffffff, #e0f7fa); /* 연한 하늘색 그라데이션 */
+}
+
+.teacher-card h2 {
+    color: #00bcd4;
+    border-bottom-color: #b2ebf2;
+}
+
+.teacher-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar {
+    font-size: 4rem;
+    background: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.message-bubble {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.message-bubble::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    border-width: 0 10px 15px 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+}
+
+.message-bubble p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #00bcd4;
+}
+
+/* 푸터 */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-sub);
+    font-size: 0.9rem;
+}
+
+/* 반응형 모바일 설정 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* 모바일에서는 메뉴 숨김 처리 (단순화) */
+    }
+    .menu-icon {
+        display: block;
+    }
+    .content-grid {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .teacher-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    .message-bubble::before {
+        display: none;
+    }
+    .message-bubble {
+        border-top-left-radius: 20px;
+    }
+}
